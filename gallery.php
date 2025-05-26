@@ -43,88 +43,70 @@
 
 ?>
 
-	<!-- HOME SECTION -->
+	
 
-	<section class="home-section" id="home">
+	<!-- IMAGE GALLERY -->
+
+	<section class="image-gallery" id="gallery">
 		<div class="container">
-			<div class="row" style="flex-wrap: nowrap;">
-				<div class="col-md-6 home-left-section">
-					<div style="padding: 100px 0px; color: white;">
-						<h1>
-							Orderlah
-						</h1>
-						<h2>
-							Lah! Just Order Already.
-						</h2>
-						<hr>
-						<p>
-							//  
-						</p>
-						<div style="display: flex;">
-							<a href="order_food.php" target="_blank" class="bttn_style_1" style="margin-right: 10px; display: flex;justify-content: center;align-items: center;">
-								Order Now
-								<i class="fas fa-angle-right"></i>
-							</a>
-							<a href="#menus" class="bttn_style_2" style="display: flex;justify-content: center;align-items: center;">
-								VIEW MENU
-								<i class="fas fa-angle-right"></i>
-							</a>
+			<h2 style="text-align: center;margin-bottom: 30px">IMAGE GALLERY</h2>
+			<?php
+				$stmt_image_gallery = $con->prepare("Select * from image_gallery");
+                $stmt_image_gallery->execute();
+                $rows_image_gallery = $stmt_image_gallery->fetchAll();
+
+                echo "<div class = 'row'>";
+
+	                foreach($rows_image_gallery as $row_image_gallery)
+	                {
+	                	echo "<div class = 'col-md-4 col-lg-3' style = 'padding: 15px;'>";
+	                		$source = "admin/Uploads/images/".$row_image_gallery['image'];
+	                		?>
+
+	                		<div style = "background-image: url('<?php echo $source; ?>') !important;background-repeat: no-repeat;background-position: 50% 50%;background-size: cover;background-clip: border-box;box-sizing: border-box;overflow: hidden;height: 230px;">
+	                		</div>
+
+	                		<?php
+	                	echo "</div>";
+	                }
+
+	            echo "</div>";
+			?>
+		</div>
+	</section>
+
+	
+	<!-- OUR QUALITIES SECTION -->
+	
+	<section class="our_qualities_v2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4" style="padding: 10px;">
+					<div class="quality quality_1">
+						<div class="text_inside_quality">
+							<h5>Quality Foods</h5>
 						</div>
 					</div>
 				</div>
-				
+				<div class="col-md-4" style="padding: 10px;">
+					<div class="quality quality_2">
+						<div class="text_inside_quality">
+							<h5>Fastest Delivery</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4" style="padding: 10px;">
+					<div class="quality quality_3">
+						<div class="text_inside_quality">
+							<h5>Original Recipes</h5>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- OUR QUALITIES SECTION -->
-
-<section class="our_qualities" style="padding:100px 0px;">
-    <div class="container">
-        <div class="row">
-            <!-- Quality Foods -->
-            <div class="col-md-4">
-                <div class="our_qualities_column">
-                    <img src="Design/images/quality_food_img.png">
-                    <div class="caption">
-                        <h3>Quality Foods</h3>
-                        <p>
-                            We serve only the finest quality meals, prepared with fresh ingredients to ensure great taste and nutrition in every bite.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Fast Delivery -->
-            <div class="col-md-4">
-                <div class="our_qualities_column">
-                    <img src="Design/images/fast_delivery_img.png">
-                    <div class="caption">
-                        <h3>Fast Delivery</h3>
-                        <p>
-                            Enjoy prompt and reliable delivery service, ensuring your food arrives hot and on time, every time.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Original Taste -->
-            <div class="col-md-4">
-                <div class="our_qualities_column">
-                    <img src="Design/images/original_taste_img.png">
-                    <div class="caption">
-                        <h3>Original Taste</h3>
-                        <p>
-                            Discover authentic flavors crafted from traditional recipes that bring a unique and unforgettable dining experience.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
 	
-
     <!-- FOOTER BOTTOM  -->
 
     <?php include "Includes/templates/footer.php"; ?>
@@ -205,4 +187,3 @@
 	    }); 
 	    
 	</script>
-
