@@ -212,11 +212,11 @@
     position: absolute;
     width: 12px;
     height: 12px;
-    background-color: brown;
+    background-color:rgb(230, 200, 120);
     border-radius: 50%;
     pointer-events: none;
     opacity: 1;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.1s ease;
     z-index: 9999;
   }
 </style>
