@@ -65,7 +65,7 @@
 								Order Now
 								<i class="fas fa-angle-right"></i>
 							</a>
-							<a href="#menus" class="bttn_style_2" style="display: flex;justify-content: center;align-items: center;">
+							<a href="menu.php" class="bttn_style_2" style="display: flex;justify-content: center;align-items: center;">
 								VIEW MENU
 								<i class="fas fa-angle-right"></i>
 							</a>
@@ -206,3 +206,45 @@
 	    
 	</script>
 
+	<!-- ================== CSS for Fading Mouse Trail ================== -->
+<style>
+  .trail-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: brown;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    z-index: 9999;
+  }
+</style>
+
+<!-- ================== JS SCRIPTS ================== -->
+<script src="Design/js/jquery.min.js"></script>
+<script src="Design/js/bootstrap.min.js"></script>
+<script src="Design/js/bootstrap.bundle.min.js"></script>
+<script src="Design/js/main.js"></script>
+
+<!-- ================== Fading Mouse Trail Script ================== -->
+<script>
+  document.addEventListener("mousemove", function(e) {
+    const dot = document.createElement("div");
+    dot.classList.add("trail-dot");
+    dot.style.left = e.pageX + "px";
+    dot.style.top = e.pageY + "px";
+    document.body.appendChild(dot);
+
+    setTimeout(() => {
+      dot.style.opacity = "0";
+    }, 10); // start fading almost immediately
+
+    setTimeout(() => {
+      dot.remove();
+    }, 500); // remove after fade completes
+  });
+</script>
+
+</body>
+</html>
