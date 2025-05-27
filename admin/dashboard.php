@@ -37,97 +37,83 @@
 
             <!-- TOP 4 CARDS -->
 
-            <div class="row">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="panel panel-green ">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <i class="fa fa-users fa-4x"></i>
-                                </div>
-                                <div class="col-sm-9 text-right">
-                                    <div class="huge"><span><?php echo countItems("client_id","clients")?></span></div>
-                                    <div>Total Clients</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="clients.php">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
+           <!-- TOP DASHBOARD CARDS -->
+<div class="row">
+
+    <!-- TOTAL CLIENTS -->
+    <div class="col-sm-6 col-lg-3">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <i class="fa fa-users fa-4x"></i>
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <i class="fas fa-utensils fa-4x"></i>
-                                </div>
-                                <div class="col-sm-9 text-right">
-                                    <div class="huge"><span><?php echo countItems("menu_id","menus")?></span></div>
-                                    <div>Total Menus</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="menus.php">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class=" col-sm-6 col-lg-3">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <i class="far fa-calendar-alt fa-4x"></i>
-                                </div>
-                                <div class="col-sm-9 text-right">
-                                    <div class="huge"><span>32</span></div>
-                                    <div>Total Appointments</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class=" col-sm-6 col-lg-3">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <i class="fas fa-pizza-slice fa-4x"></i>
-                                </div>
-                                <div class="col-sm-9 text-right">
-                                    <div class="huge"><span><?php echo countItems("order_id","placed_orders")?></span></div>
-                                    <div>Total Orders</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
+                    <div class="col-sm-9 text-right">
+                        <div class="huge"><span><?php echo countItems("client_id", "clients"); ?></span></div>
+                        <div>Total Clients</div>
                     </div>
                 </div>
             </div>
+            <a href="clients.php">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- TOTAL MENUS -->
+    <div class="col-sm-6 col-lg-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <i class="fas fa-utensils fa-4x"></i>
+                    </div>
+                    <div class="col-sm-9 text-right">
+                        <div class="huge"><span><?php echo countItems("menu_id", "menus"); ?></span></div>
+                        <div>Total Menus</div>
+                    </div>
+                </div>
+            </div>
+            <a href="menus.php">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- TOTAL ORDERS -->
+    <div class="col-sm-6 col-lg-3">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <i class="fas fa-pizza-slice fa-4x"></i>
+                    </div>
+                    <div class="col-sm-9 text-right">
+                        <div class="huge"><span><?php echo countItems("order_id", "placed_orders"); ?></span></div>
+                        <div>Total Orders</div>
+                    </div>
+                </div>
+            </div>
+            <a href="orders.php">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
 
             <!-- START ORDERS TABS -->
 
