@@ -112,7 +112,7 @@
                 <li>
                     <a href="users.php" class="a-verMenu users_link">
                         <i class="far fa-user icon-ver"></i>
-                        <span style="padding-left:6px;">Users</span>
+                        <span style="padding-left:6px;">Admin</span>
                     </a>
                 </li>
                 
