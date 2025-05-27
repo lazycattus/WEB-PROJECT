@@ -163,17 +163,23 @@
                         </div>
                     </div> 
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <div class="form-group">
-                            <label for="number_of_guests">How many people?</label>
-                            <select class="form-control" name="number_of_guests">
-                                <option value="1" <?php echo (isset($_POST['number_of_guests']))?"selected":"";  ?>>
-                                    One person
-                                </option>
-                                <option value="2" <?php echo (isset($_POST['number_of_guests']))?"selected":"";  ?>>Two people</option>
-                                <option value="3" <?php echo (isset($_POST['number_of_guests']))?"selected":"";  ?>>Three people</option>
-                                <option value="4" <?php echo (isset($_POST['number_of_guests']))?"selected":"";  ?>>Four people</option>
-                            </select>
-                        </div>
+                       <div class="form-group">
+    <label for="number_of_guests">How many people?</label>
+    <input 
+        class="form-control" 
+        list="guests_options" 
+        name="number_of_guests" 
+        id="number_of_guests" 
+        value="<?php echo isset($_POST['number_of_guests']) ? htmlspecialchars($_POST['number_of_guests']) : ''; ?>"
+    >
+    <datalist id="guests_options">
+        <option value="1">One person</option>
+        <option value="2">Two person</option>
+        <option value="3">Three person</option>
+        <option value="4">Four person</option>
+    </datalist>
+</div>
+
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <div class="form-group">
