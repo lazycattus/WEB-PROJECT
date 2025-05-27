@@ -208,7 +208,7 @@
 
                                                 echo "</td>";
                                                 echo "<td>";
-                                                    echo $total_price."$";
+                                                    echo "RM".$total_price;
                                                 echo "</td>";
                                                 echo "<td>";
                                                     ?>
