@@ -51,7 +51,7 @@
 				<div class="col-md-6 home-centre-section">
 					<div style="padding: 100px 0px; color: white;">
 						<h1>
-							Orderlah
+							TaknakOrder
 						</h1>
 						<h2>
 							Lah! Just Order Already.
