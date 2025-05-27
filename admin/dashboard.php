@@ -88,29 +88,6 @@
         </div>
     </div>
 
-    <!-- TOTAL ORDERS -->
-    <div class="col-sm-6 col-lg-3">
-        <div class="panel panel-yellow">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <i class="fas fa-pizza-slice fa-4x"></i>
-                    </div>
-                    <div class="col-sm-9 text-right">
-                        <div class="huge"><span><?php echo countItems("order_id", "placed_orders"); ?></span></div>
-                        <div>Total Orders</div>
-                    </div>
-                </div>
-            </div>
-            <a href="orders.php">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
 
 </div>
 
