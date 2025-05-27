@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2023 at 09:54 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: May 27, 2025 at 01:20 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,15 +39,8 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`client_id`, `client_name`, `client_phone`, `client_email`) VALUES
-(9, 'Clinet 1', '02020202020', 'client1@gmail.com'),
-(10, 'Client 10', '0638383933', 'client10@gmail.com'),
-(11, 'Client 11', '06242556272', 'client11@yahoo.fr'),
-(13, 'Client 12', '030303030202', 'client1133@gmail.com'),
-(14, 'Client 12', '030303030', 'client14@gmail.com'),
-(16, 'Client 14', '0203203203', 'client14@gmail.com'),
-(17, 'Client 17', '0737373822', 'client17@gmail.com'),
-(18, 'Client 12', '02920320', 'client12@yahoo.fr'),
-(19, 'Test', '1034304300', 'test@gmail.com');
+(26, 'Qurratun Aina Sakinah', '0187824620', 'aina@gmail.com'),
+(27, 'adam', '01178929', 'adam@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -66,11 +59,18 @@ CREATE TABLE `image_gallery` (
 --
 
 INSERT INTO `image_gallery` (`image_id`, `image_name`, `image`) VALUES
-(1, 'Moroccan Tajine', '58146_Moroccan Chicken Tagine.jpeg'),
+(1, 'hamburger', 'hamburger.jpeg'),
 (2, 'Italian Pasta', 'img_1.jpg'),
 (3, 'Cook', 'img_2.jpg'),
 (4, 'Pizza', 'img_3.jpg'),
-(5, 'Burger', 'burger.jpeg');
+(5, 'Burger', 'burger.jpeg'),
+(6, 'coffee', 'coffee.jpeg'),
+(7, 'charkueyteow', 'charkueyteow.jpg'),
+(8, 'avocado', 'avocadosalad.jpg'),
+(9, 'lontong', 'lontong.jpg'),
+(10, 'nasilemak', 'nasilemak.jpg'),
+(11, 'chocolate lava cake', 'chocolatelavacake.jpg'),
+(12, 'tiramisu', 'tiramisu.jpg');
 
 -- --------------------------------------------------------
 
@@ -90,12 +90,10 @@ CREATE TABLE `in_order` (
 --
 
 INSERT INTO `in_order` (`id`, `order_id`, `menu_id`, `quantity`) VALUES
-(8, 10, 16, 1),
-(9, 11, 12, 1),
-(10, 11, 16, 1),
-(11, 12, 11, 1),
-(12, 12, 12, 1),
-(13, 12, 16, 1);
+(25, 17, 2, 1),
+(26, 17, 3, 1),
+(27, 18, 21, 1),
+(28, 18, 24, 1);
 
 -- --------------------------------------------------------
 
@@ -117,17 +115,37 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`menu_id`, `menu_name`, `menu_description`, `menu_price`, `menu_image`, `category_id`) VALUES
-(1, 'Moroccan Couscous', 'Moroccan couscous is a traditional dish consisting of fluffy semolina grains steamed to perfection, accompanied by a rich and aromatic stew of tender meat, vegetables, &amp; fragrant spices.', 14.00, '88737_couscous_meat.jpg', 8),
-(2, 'Beef Hamburger', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 3.80, 'burger.jpeg', 1),
-(3, 'Ice Cream', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 7.50, 'summer-dessert-sweet-ice-cream.jpg', 2),
-(5, 'Coffee', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 10.00, 'coffee.jpeg', 3),
-(6, 'Ice Tea', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 3.20, '76643_ice_tea.jpg', 3),
-(7, 'Bucatini', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 20.00, 'macaroni.jpeg', 4),
-(8, 'Cannelloni', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 10.00, 'cooked_pasta.jpeg', 4),
-(9, 'Margherita', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 24.00, 'pizza.jpeg', 5),
-(11, 'Moroccan Tajine', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 20.00, '58146_Moroccan Chicken Tagine.jpeg', 8),
-(12, 'Moroccan Bissara', 'Bissara is a traditional Moroccan dish made from dried split fava beans (also known as broad beans) that are cooked and blended into a smooth and flavorful soup.', 10.00, '61959_Bissara.jpg', 8),
-(16, 'Couscous', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, lectus et mollis ultricies, justo arcu dignissim enim, eu eleifend lectus nulla.', 20.00, '76635_57738_w1024h768c1cx256cy192.jpg', 8);
+(1, 'Nasi Lemak with Fried Chicken', 'Fragrant coconut rice served with spicy sambal, boiled egg, anchovies, peanuts, cucumber, and crispy fried chicken.', 14.00, 'nasilemak.jpg', 8),
+(2, 'Beef Hamburger', 'A juicy grilled beef patty served in a bun with fresh lettuce, tomato, and signature sauce.\n', 15.90, 'burger.jpeg', 1),
+(3, 'Ice Cream', 'A creamy and refreshing frozen dessert available in a variety of delicious flavors.\n', 5.00, 'summer-dessert-sweet-ice-cream.jpg', 2),
+(5, 'Coffee', 'Freshly brewed aromatic coffee made from high-quality roasted beans.\n', 6.00, 'coffee.jpeg', 3),
+(6, 'Ice Tea', 'A chilled and refreshing tea beverage, lightly sweetened and served over ice.', 3.20, '76643_ice_tea.jpg', 3),
+(7, 'Bucatini', 'Thick, hollow pasta served with a rich tomato sauce and seasoned with fresh herbs.\n', 18.00, 'macaroni.jpeg', 4),
+(8, 'Cannelloni', 'Rolled pasta tubes stuffed with meat or cheese, baked with marinara and béchamel sauce.', 15.50, 'cooked_pasta.jpeg', 4),
+(9, 'Margherita', 'Classic Italian pizza topped with fresh mozzarella, basil leaves, and tomato sauce.', 22.00, 'pizza.jpeg', 5),
+(11, 'Mee Goreng Mamak', 'Spicy stir-fried yellow noodles with tofu, potatoes, egg, and vegetables in a savory soy-based sauce.', 5.00, 'meegoreng.jpg', 8),
+(12, 'Char Kuey Teow', 'Wok-fried flat rice noodles with prawns, egg, bean sprouts, and chives in a smoky, flavorful sauce.\r\n', 5.00, 'charkueyteow.jpg', 8),
+(16, 'Nasi Kerabu with Ayam Percik', 'Blue-tinted herb rice served with grilled spiced chicken, salad, salted egg, and sambal sauce.', 10.50, 'nasikerabu.jpeg', 8),
+(17, 'Roti Canai (2 pieces) with Dhal Curry', 'Flaky and crispy flatbread served with warm lentil curry.', 4.50, 'roticanai.jpg', 8),
+(18, 'Soto Ayam', 'Aromatic chicken soup with rice cakes, shredded chicken, and bean sprouts, topped with fried shallots.', 8.00, 'sotoayam.jpeg', 8),
+(19, 'Lontong with Sambal', 'Compressed rice cakes in coconut vegetable stew, served with spicy sambal for extra kick.', 7.50, 'lontong.jpg', 8),
+(20, 'Chicken Burger', 'Crispy or grilled chicken fillet served with fresh veggies and mayo in a soft bun.', 13.90, 'chickenburger.jpeg', 1),
+(21, 'Double Cheeseburger', 'Two beef patties stacked with melted cheese, pickles, and sauce for a hearty bite.', 18.90, 'doublecheeseburger.jpeg', 1),
+(22, 'Veggie Burger', 'Tasty plant-based patty with fresh vegetables and a tangy dressing, served in a wholemeal bun.', 8.00, 'veggieburger.jpeg', 1),
+(23, 'Chocolate Lava Cake', 'Warm, rich chocolate cake with a gooey molten center, served with a scoop of vanilla ice cream.', 9.50, 'chocolatelavacake.jpg', 2),
+(24, 'Tiramisu', 'Classic Italian dessert with layers of coffee-soaked sponge and mascarpone cream.', 10.90, 'tiramisu.jpg', 2),
+(25, 'Fruit Salad', 'A refreshing mix of seasonal fruits, lightly chilled and served fresh.', 6.50, 'fruitsalad.jpg', 2),
+(26, 'Mango Juice', 'Sweet and tropical mango juice, served cold.', 5.50, 'mangojuice.jpg', 3),
+(27, 'Mineral Water', 'Pure bottled water to keep you hydrated.', 2.50, 'mineral.jpeg', 3),
+(28, 'Spaghetti Carbonara', 'Classic creamy pasta with eggs, cheese, and smoky beef bacon.', 16.90, 'carbonara.jpeg', 4),
+(29, 'Fettuccine Alfredo', 'Rich and creamy white sauce pasta with butter, parmesan, and perfectly cooked fettuccine.', 17.90, 'alfredo.jpg', 4),
+(30, 'Pepperoni', 'Loaded with spicy pepperoni slices and melted cheese on a crispy crust.', 24.00, 'pepperoni.jpg', 5),
+(31, 'Hawaiian', 'Sweet pineapple chunks and savory chicken or ham on a cheesy tomato base.', 23.50, 'hawaiian.jpeg', 5),
+(32, 'BBQ Chicken', 'Smoky BBQ sauce, grilled chicken, red onions, and cheese on a hand-tossed crust.', 25.00, 'bbqchicken.jpg', 5),
+(33, 'Caesar Salad', 'Crisp romaine lettuce with parmesan, croutons, and Caesar dressing.', 12.90, 'caesarsalad.jpg', 6),
+(34, 'Greek Salad', 'A refreshing mix of cucumbers, tomatoes, olives, onions, and feta cheese.', 11.50, 'greeksalad.jpg', 6),
+(35, 'Tuna Salad', 'Light and healthy blend of tuna, greens, cherry tomatoes, and vinaigrette.', 13.00, 'tunasalad.jpg', 6),
+(36, 'Quinoa & Avocado Salad', 'A hearty, nutritious bowl of quinoa, creamy avocado, and mixed vegetables with lemon dressing.', 14.50, 'avocadosalad.jpg', 6);
 
 -- --------------------------------------------------------
 
@@ -151,7 +169,7 @@ INSERT INTO `menu_categories` (`category_id`, `category_name`) VALUES
 (4, 'pasta'),
 (5, 'pizzas'),
 (6, 'salads'),
-(8, 'Traditional Food');
+(8, 'Malaysian Traditional Food');
 
 -- --------------------------------------------------------
 
@@ -174,12 +192,8 @@ CREATE TABLE `placed_orders` (
 --
 
 INSERT INTO `placed_orders` (`order_id`, `order_time`, `client_id`, `delivery_address`, `delivered`, `canceled`, `cancellation_reason`) VALUES
-(7, '2020-06-22 12:01:00', 9, 'Bloc A Nr 80000 Hay ElAgadir', 0, 1, 'Sorry! I changed my mind!'),
-(8, '2020-06-23 06:07:00', 10, 'Chengdu, China', 0, 1, ''),
-(9, '2020-06-24 16:40:00', 11, 'Hay El Houda Agadir', 1, 0, NULL),
-(10, '2023-07-01 04:02:00', 16, 'Bloc A', 0, 0, NULL),
-(11, '2023-10-30 20:09:00', 18, 'Test testst asds', 0, 0, NULL),
-(12, '2023-10-30 21:46:00', 19, 'tests sd', 0, 0, NULL);
+(17, '2025-05-27 05:45:00', 26, 'test st', 0, 0, NULL),
+(18, '2025-05-27 13:17:00', 27, 'wtv', 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -199,16 +213,6 @@ CREATE TABLE `reservations` (
   `cancellation_reason` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dumping data for table `reservations`
---
-
-INSERT INTO `reservations` (`reservation_id`, `date_created`, `client_id`, `selected_time`, `nbr_guests`, `table_id`, `liberated`, `canceled`, `cancellation_reason`) VALUES
-(1, '2020-07-18 09:07:00', 13, '2020-07-30 09:07:00', 0, 1, 0, 0, NULL),
-(2, '2020-07-18 09:11:00', 14, '2020-07-29 13:00:00', 4, 1, 0, 0, NULL),
-(3, '2023-07-01 04:01:00', 15, '2023-07-02 05:00:00', 2, 1, 0, 0, NULL),
-(4, '2023-10-30 20:03:00', 17, '2023-11-08 20:03:00', 1, 1, 0, 0, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -218,13 +222,6 @@ INSERT INTO `reservations` (`reservation_id`, `date_created`, `client_id`, `sele
 CREATE TABLE `tables` (
   `table_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Dumping data for table `tables`
---
-
-INSERT INTO `tables` (`table_id`) VALUES
-(1);
 
 -- --------------------------------------------------------
 
@@ -264,11 +261,11 @@ CREATE TABLE `website_settings` (
 --
 
 INSERT INTO `website_settings` (`option_id`, `option_name`, `option_value`) VALUES
-(1, 'restaurant_name', 'VINCENT PIZZA'),
-(2, 'restaurant_email', 'vincent.pizza@gmail.com'),
+(1, 'restaurant_name', 'ORDERLAH'),
+(2, 'restaurant_email', 'SSE3308GROUP4@gmail.com'),
 (3, 'admin_email', 'admin_email@gmail.com'),
-(4, 'restaurant_phonenumber', '088866777555'),
-(5, 'restaurant_address', '1580  Boone Street, Corpus Christi, TX, 78476 - USA');
+(4, 'restaurant_phonenumber', '+60 3-9212 3456'),
+(5, 'restaurant_address', '25 Jalan Rasa Sayang, CyberKafe District, 63000 TechVille, Malaysia');
 
 --
 -- Indexes for dumped tables
@@ -348,25 +345,25 @@ ALTER TABLE `website_settings`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `image_gallery`
 --
 ALTER TABLE `image_gallery`
-  MODIFY `image_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `image_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `in_order`
 --
 ALTER TABLE `in_order`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `menu_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `menu_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `menu_categories`
@@ -378,13 +375,13 @@ ALTER TABLE `menu_categories`
 -- AUTO_INCREMENT for table `placed_orders`
 --
 ALTER TABLE `placed_orders`
-  MODIFY `order_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `order_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `reservation_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tables`
