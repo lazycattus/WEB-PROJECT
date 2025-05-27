@@ -48,7 +48,7 @@
 	<section class="home-section" id="home">
 		<div class="container">
 			<div class="row" style="flex-wrap: nowrap;">
-				<div class="col-md-6 home-left-section">
+				<div class="col-md-6 home-centre-section">
 					<div style="padding: 100px 0px; color: white;">
 						<h1>
 							Orderlah
@@ -58,7 +58,7 @@
 						</h2>
 						<hr>
 						<p>
-							//  
+							Tasty food, fast delivery, confirm syok! 
 						</p>
 						<div style="display: flex;">
 							<a href="order_food.php" target="_blank" class="bttn_style_1" style="margin-right: 10px; display: flex;justify-content: center;align-items: center;">

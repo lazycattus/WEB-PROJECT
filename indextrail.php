@@ -35,7 +35,7 @@
                 <h1>Orderlah</h1>
                 <h2>Lah! Just Order Already.</h2>
                 <hr style="border-color: white;">
-                <p>Fresh food, fast delivery, fabulous flavor.</p>
+                <p>Tasty food, fast delivery, confirm syok!</p>
                 <div class="d-flex justify-content-center mt-4">
                     <a href="order_food.php" target="_blank" class="bttn_style_1 mx-2">
                         Order Now <i class="fas fa-angle-right"></i>
@@ -87,7 +87,7 @@
     position: absolute;
     width: 12px;
     height: 12px;
-    background-color: red;
+    background-color: white;
     border-radius: 50%;
     pointer-events: none;
     opacity: 1;
