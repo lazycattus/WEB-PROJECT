@@ -45,7 +45,7 @@
 						$_SESSION['password_restaurant_qRewacvAqzA'] = $password;
 						$_SESSION['userid_restaurant_qRewacvAqzA'] = $row['user_id'];
 
-						//	Cookies added
+						//	Cookies to remember user added
 						if (!empty($_POST['remember'])) {
 								setcookie("remember_username", $username, time() + (86400 * 30), "/");
 						}
@@ -73,7 +73,7 @@
 
 			<div class="form-input">
 				<span class="txt1">Username</span>
-				<!--Cookies added-->
+				<!--Cookies to remember user added-->
 				<input type="text" name="username" class="form-control username"
 				value="<?php echo isset($_COOKIE['remember_username']) ? $_COOKIE['remember_username'] : ''; ?>"
 				oninput="document.getElementById('username_required').style.display = 'none'" id="user" autocomplete="off">
