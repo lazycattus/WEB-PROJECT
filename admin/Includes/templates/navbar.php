@@ -2,7 +2,7 @@
 
     <header class="headerMenu сlearfix sb-page-header">   
         <div class="nav-header">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="dashboard.php">
                 Admin Panel
             </a> 
         </div>
