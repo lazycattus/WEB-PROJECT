@@ -45,7 +45,7 @@
 						$_SESSION['password_restaurant_qRewacvAqzA'] = $password;
 						$_SESSION['userid_restaurant_qRewacvAqzA'] = $row['user_id'];
 
-						//-----------------------------------------------COOKIE TU AIN ADDED DEKAT SINI-----------------------------------
+						//	Cookies added
 						if (!empty($_POST['remember'])) {
 								setcookie("remember_username", $username, time() + (86400 * 30), "/");
 						}
@@ -73,7 +73,7 @@
 
 			<div class="form-input">
 				<span class="txt1">Username</span>
-				<!--AIN TAMBAH DEKAT SINI-->
+				<!--Cookies added-->
 				<input type="text" name="username" class="form-control username"
 				value="<?php echo isset($_COOKIE['remember_username']) ? $_COOKIE['remember_username'] : ''; ?>"
 				oninput="document.getElementById('username_required').style.display = 'none'" id="user" autocomplete="off">
@@ -90,7 +90,7 @@
 			</div>
 
 			<!-- SIGNIN BUTTON -->
-			<!--AIN TAMBAH DEKAT SINI-->
+			<!--Adding Remember Me checkbox-->
 			<label><input type="checkbox" name="remember"> Remember Me</label>
 			<p>
 				<button type="submit" name="admin_login" >Sign In</button>
