@@ -44,6 +44,12 @@
 						$_SESSION['username_restaurant_qRewacvAqzA'] = $username;
 						$_SESSION['password_restaurant_qRewacvAqzA'] = $password;
 						$_SESSION['userid_restaurant_qRewacvAqzA'] = $row['user_id'];
+
+						//-----------------------------------------------COOKIE TU AIN ADDED DEKAT SINI-----------------------------------
+						if (!empty($_POST['remember'])) {
+								setcookie("remember_username", $username, time() + (86400 * 30), "/");
+						}
+
 						header('Location: dashboard.php');
 						die();
 					}
@@ -67,7 +73,11 @@
 
 			<div class="form-input">
 				<span class="txt1">Username</span>
-				<input type="text" name="username" class = "form-control username" oninput="document.getElementById('username_required').style.display = 'none'" id="user" autocomplete="off">
+				<!--AIN TAMBAH DEKAT SINI-->
+				<input type="text" name="username" class="form-control username"
+				value="<?php echo isset($_COOKIE['remember_username']) ? $_COOKIE['remember_username'] : ''; ?>"
+				oninput="document.getElementById('username_required').style.display = 'none'" id="user" autocomplete="off">
+				<!---->
 				<div class="invalid-feedback" id="username_required">Username is required!</div>
 			</div>
 
@@ -80,7 +90,8 @@
 			</div>
 
 			<!-- SIGNIN BUTTON -->
-			
+			<!--AIN TAMBAH DEKAT SINI-->
+			<label><input type="checkbox" name="remember"> Remember Me</label>
 			<p>
 				<button type="submit" name="admin_login" >Sign In</button>
 			</p>
