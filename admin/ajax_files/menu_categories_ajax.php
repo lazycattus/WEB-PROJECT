@@ -35,6 +35,11 @@
 	{
 		$category_id = $_POST['category_id'];
 
+        // Step 1: Delete from 'menus'
+        $stmt1 = $con->prepare("DELETE FROM menus WHERE category_id = ?");
+        $stmt1->execute([$category_id]);
+
+        //Step 2: Delete from 'menu_categories'
         $stmt = $con->prepare("DELETE from menu_categories where category_id = ?");
         $stmt->execute(array($category_id));    
 	}

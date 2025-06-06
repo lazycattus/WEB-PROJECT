@@ -14,7 +14,7 @@
         $extesnion = end($image_split);
         $image_extension = strtolower($extesnion);
         
-        if(empty($_FILES['image']['name']) || (!empty($_FILES['menu_image']['name']) && !in_array($image_extension,$image_allowed_extension)))
+        if(empty($_FILES['image']['name']) || !in_array($image_extension, $image_allowed_extension))
         {
             echo "<div class = 'alert alert-warning'>";
                 echo "Invalid Image format! Only JPEG, JPG and PNG are accepted.";
@@ -27,7 +27,7 @@
             try
             {
                 $image = rand(0,100000).'_'.$_FILES['image']['name'];
-                move_uploaded_file($_FILES['image']['tmp_name'],"Uploads/images//".$image);
+                move_uploaded_file($_FILES['image']['tmp_name'],"../Uploads/images//".$image);
                 //Insert into the database
                 $stmt = $con->prepare("insert into image_gallery(image_name, image) values(?, ?) ");
                 $stmt->execute(array($image_name, $image));

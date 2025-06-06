@@ -237,35 +237,35 @@
         readURL(this);
     });
 
-    $('#add_image_bttn').click(function()
-    {
+     $('#add_image_bttn').click(function() {
         var image_name = $("#image_name_input").val();
-        var image = $("#imageUpload").val();
-        formdata = new FormData();  
+        var image = $("#add_gallery_imageUpload")[0].files[0]; // Correct input ID
 
-        var do_ = "Add";
+        var formdata = new FormData();
+        formdata.append("do", "Add");
+        formdata.append("image_name", image_name);
+        formdata.append("image", image);
 
-        if($.trim(image_name) == "")
-        {
-            $('#required_image_name').css('display','block');
-        }
-        else
-        {
-            $.ajax(
-            {
-                url:"ajax_files/gallery_ajax.php",
-                method:"POST",
-                data:{image_name:image_name,image:image,do:do_},
+        if ($.trim(image_name) == "" || !image) {
+            if ($.trim(image_name) == "") {
+                $('#required_image_name').css('display', 'block');
+            }
+            if (!image) {
+                $('#required_image').css('display', 'block');
+            }
+        } else {
+            $.ajax({
+                url: "ajax_files/gallery_ajax.php",
+                method: "POST",
+                data: formdata,
                 cache: false,
                 contentType: false,
                 processData: false,
-                success: function (data) 
-                {
+                success: function(data) {
                     $('#add_image_result').html(data);
                 },
-                error: function(xhr, status, error) 
-                {
-                    alert('AN ERROR HAS BEEN ENCOUNTERED WHILE TRYING TO EXECUTE YOUR REQUEST');
+                error: function(xhr, status, error) {
+                    alert('An error has been encountered while trying to execute your request');
                 }
             });
         }
