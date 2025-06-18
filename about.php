@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 sm-padding">
-                    <!--TEMPAT LETAK GAMBAR-->
+                    <img src="Design\images\team.jpg" alt="">
                 </div>
             </div>
         </div>
