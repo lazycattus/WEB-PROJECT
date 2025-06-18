@@ -271,4 +271,29 @@
         }
     });
 
+    // When delete image button is clicked
+
+    $('.delete_image_bttn').click(function()
+    {
+        var image_id = $(this).data('id');
+        var do_ = "Delete";
+
+        $.ajax(
+        {
+            url:"ajax_files/gallery_ajax.php",
+            method:"POST",
+            data:{image_id:image_id,do:do_},
+            success: function (data) 
+            {
+                swal("Delete image","The image has been deleted successfully!", "success").then((value) => {
+                    window.location.replace("gallery.php");
+                });     
+            },
+            error: function(xhr, status, error) 
+            {
+                alert('AN ERROR HAS BEEN ENCOUNTERED WHILE TRYING TO EXECUTE YOUR REQUEST');
+            }
+          });
+    });
+
 </script>
