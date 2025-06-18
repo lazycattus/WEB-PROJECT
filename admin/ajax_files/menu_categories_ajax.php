@@ -31,6 +31,7 @@
             
 	}
 
+    //delete categories
 	if(isset($_POST['do']) && $_POST['do'] == "Delete")
 	{
 		$category_id = $_POST['category_id'];

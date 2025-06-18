@@ -50,3 +50,12 @@
     else{
         echo "dsdsd";
     }
+
+    if(isset($_POST['do']) && $_POST['do'] == "Delete")
+	{
+		$image_id = $_POST['image_id'];
+
+        // delete image'
+        $stmt = $con->prepare("DELETE FROM image_gallery WHERE image_id = ?");
+        $stmt->execute([$image_id]); 
+	}
