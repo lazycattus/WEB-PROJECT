@@ -70,8 +70,8 @@
                         </h4>
                     </div>
                 </div>
-                <div class="col-lg-6 sm-padding">
-                    <img src="Design\images\team.jpg" alt="">
+                <div class="image_team">
+                    <img src="Design\images\team.jpg" alt=" "style="width: 50%; margin-left: 30px">
                 </div>
             </div>
         </div>
@@ -86,7 +86,11 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer_widget">
-                        <img src="Design/images/restaurant-logo.png" alt="Restaurant Logo" style="width: 150px;margin-bottom: 20px;">
+                        <p>
+  <img src="Design/images/restaurant-logo.png" style="float:right; width:50%; border-radius:5px;">
+  Welcome to our restaurant. Enjoy delicious food with great ambiance.
+</p>
+
                         <p>
                             ORDERLAH is one of the bests, provide tasty Menus and Dishes. You can reserve a table or Order food.
                         </p>

@@ -636,3 +636,10 @@ ul.nav>li>a:hover
 }
 
 /*** END FOOTER BOTTOM STYLE ***/
+
+/*** Image team***/
+.image_team{
+    width: 30%;
+    padding-left: 300px;
+
+}
