@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2025 at 10:18 AM
+-- Generation Time: Jun 18, 2025 at 11:22 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,18 @@ INSERT INTO `clients` (`client_id`, `client_name`, `client_phone`, `client_email
 (27, 'adam', '01178929', 'adam@gmail.com'),
 (28, 'Qurratun Aina Sakinah', '01178929', 'ainarg178@gmail.com'),
 (29, 'Qurratun Aina Sakinah', '01178929', 'ainarg178@gmail.com'),
-(30, 'Qurratun Aina Sakinah', '01178929', 'sarah@gmail.com');
+(30, 'Qurratun Aina Sakinah', '01178929', 'sarah@gmail.com'),
+(31, 'Qurratun Aina Sakinah', '01178929', 'test@gmail.com'),
+(32, 'Luqman', '0101011010', '101@gmail.com'),
+(33, 'Luq', '123124235246', 'luq@gmail.com'),
+(34, 'Luqman', '01231242141', 'luq@gmail.com'),
+(35, 'Luqman', '01234513123', 'Hi@gmail.com'),
+(36, 'Qurratun Aina Sakinah', '0101011010', 'aina@gmail.com'),
+(37, 'test', '123124235246', 'sarah@gmail.com'),
+(38, 'Luqman', '0187824620', 'luq@gmail.com'),
+(39, 'test', '123124235246', 'ain@gmail.com'),
+(40, 'Qurratun Aina Sakinah', '0190192', 'ain@gmail.com'),
+(41, 'Qurratun Aina Sakinah', '0190192', 'test@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -218,7 +229,7 @@ CREATE TABLE `reservations` (
   `table_id` int(3) NOT NULL,
   `liberated` tinyint(1) NOT NULL DEFAULT 0,
   `canceled` tinyint(1) NOT NULL DEFAULT 0,
-  `cancellation_reason` varchar(255) DEFAULT NULL
+  `cancellation_reason` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
@@ -226,7 +237,18 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`reservation_id`, `date_created`, `client_id`, `selected_time`, `nbr_guests`, `table_id`, `liberated`, `canceled`, `cancellation_reason`) VALUES
-(7, '2025-06-18 10:17:00', 30, '2025-06-19 10:16:00', 1, 1, 0, 0, NULL);
+(7, '2025-06-18 10:17:00', 30, '2025-06-19 10:16:00', 1, 1, 1, 1, ''),
+(8, '2025-06-18 10:25:00', 31, '2025-06-19 10:25:00', 2, 1, 0, 1, ''),
+(9, '2025-06-18 10:46:00', 32, '2025-06-19 10:45:00', 1, 1, 0, 1, ''),
+(10, '2025-06-18 10:51:00', 33, '2025-06-19 10:51:00', 2, 1, 0, 1, ''),
+(11, '2025-06-18 10:54:00', 34, '2025-06-19 10:51:00', 2, 1, 0, 1, 'Hi this is a big problem'),
+(12, '2025-06-18 10:54:00', 35, '2025-06-18 10:59:13', 2, 1, 1, 0, NULL),
+(13, '2025-06-18 10:59:00', 36, '2025-06-18 11:01:45', 2, 1, 0, 0, NULL),
+(14, '2025-06-18 10:59:00', 37, '2025-06-19 10:59:00', 2, 1, 0, 1, 'aina nak cancel'),
+(15, '2025-06-18 11:17:00', 38, '2025-06-19 10:59:00', 2, 1, 1, 1, 'haih'),
+(16, '2025-06-18 11:17:00', 39, '2025-06-19 11:17:00', 2, 2, 1, 1, 'big problem no 2'),
+(17, '2025-06-18 11:20:00', 40, '2025-06-18 11:19:46', 2, 1, 1, 0, NULL),
+(18, '2025-06-18 11:20:00', 41, '2025-06-18 11:19:51', 2, 2, 1, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -235,18 +257,19 @@ INSERT INTO `reservations` (`reservation_id`, `date_created`, `client_id`, `sele
 --
 
 CREATE TABLE `tables` (
-  `table_id` int(3) NOT NULL
+  `table_id` int(3) NOT NULL,
+  `is_available` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `tables`
 --
 
-INSERT INTO `tables` (`table_id`) VALUES
-(1),
-(2),
-(3),
-(4);
+INSERT INTO `tables` (`table_id`, `is_available`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1);
 
 -- --------------------------------------------------------
 
@@ -370,7 +393,7 @@ ALTER TABLE `website_settings`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `image_gallery`
@@ -406,7 +429,7 @@ ALTER TABLE `placed_orders`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `reservation_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tables`
