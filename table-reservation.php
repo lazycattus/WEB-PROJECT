@@ -87,7 +87,8 @@
                 // Selected Date and Time
 
                 $selected_date = $_POST['selected_date'];
-                $selected_time = $_POST['selected_time'];
+               $selected_time = date("H:i:s", strtotime($_POST['selected_time']));
+
 
                 $desired_date = $selected_date." ".$selected_time;
 
@@ -193,84 +194,68 @@
             <!-- CHECKING AVAILABILITY OF TABLES -->
 
             <?php
+if (isset($_POST['check_availability_submit'])) {
+    $selected_date = $_POST['reservation_date'];
+   $selected_time = date("H:i:s", strtotime($_POST['reservation_time']));
 
-                if(isset($_POST['check_availability_submit']))
-                {
-                    $selected_date = $_POST['reservation_date'];
-                    $selected_time = $_POST['reservation_time'];
-                    $number_of_guests = $_POST['number_of_guests'];
+    $number_of_guests = $_POST['number_of_guests'];
 
-                    $stmt = $con->prepare("select table_id
-                        from tables
+    $datetime = $selected_date . ' ' . $selected_time;
 
-                        where table_id not in (select t.table_id
-                        from tables t, reservations r
-                        where 
-                        t.table_id = r.table_id
-                        and 
-                        date(r.selected_time) = ?
-                        and liberated = 0
-                        and canceled = 0)
-                    ");
+    $stmt = $con->prepare("
+        SELECT table_id 
+        FROM tables 
+        WHERE table_id NOT IN (
+            SELECT table_id 
+            FROM reservations 
+            WHERE DATE(selected_time) = ? 
+              AND TIME(selected_time) = ? 
+              AND canceled = 0 
+              AND liberated = 0
+        )
+        ORDER BY table_id ASC
+    ");
+    $stmt->execute([$selected_date, $selected_time]);
+    $available_tables = $stmt->fetchAll();
 
-                    $stmt->execute(array($selected_date));
-                    $rows = $stmt->fetch();
-                    
-                    if($stmt->rowCount() == 0)
-                    {
-                        ?>
-                            <div class="error_div">
-                                <span class="error_message" style="font-size: 16px">ALL TABLES ARE RESERVED</span>
-                            </div>
-                        <?php
-                    }
-                    else
-                    {
-                        $table_id = $rows['table_id'];
-                        ?>
-                            <div class="text_header">
-                                <span>
-                                    2. Client details
-                                </span>
-                            </div>
-                            <form method="POST" action="table-reservation.php">
-                                <input type="hidden" name="selected_date" value="<?php echo $selected_date ?>">
-                                <input type="hidden" name="selected_time" value="<?php echo $selected_time ?>">
-                                <input type="hidden" name="number_of_guests" value="<?php echo $number_of_guests ?>">
-                                <input type="hidden" name="table_id" value="<?php echo $table_id ?>">
-                                <div class="client_details_tab">
-                                    <div class="form-group colum-row row">
-                                        <div class="col-sm-12">
-                                            <input type="text" name="client_full_name" id="client_full_name" oninput="document.getElementById('required_fname').style.display = 'none'" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z]/g,'');" class="form-control" placeholder="Full name">
-                                            <div class="invalid-feedback" id="required_fname">
-                                                Invalid Name!
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6">
-                                            <input type="email" name="client_email" id="client_email" oninput="document.getElementById('required_email').style.display = 'none'" class="form-control" placeholder="E-mail">
-                                            <div class="invalid-feedback" id="required_email">
-                                                Invalid E-mail!
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="text"  name="client_phone_number" id="client_phone_number" oninput="document.getElementById('required_phone').style.display = 'none'" class="form-control" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="Phone number">
-                                            <div class="invalid-feedback" id="required_phone">
-                                                Invalid Phone number!
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" name="submit_table_reservation_form" class="btn btn-info" value="Make a Reservation">
-                                </div>
-                            </form>
-                        <?php
-                    }
+    if (count($available_tables) == 0) {
+        echo '<div class="error_div">
+                <span class="error_message" style="font-size: 16px">ALL TABLES ARE RESERVED</span>
+              </div>';
+    } else {
+        $table_id = $available_tables[0]['table_id'];
+        ?>
+        <div class="text_header">
+            <span>2. Client details</span>
+        </div>
+        <form method="POST" action="table-reservation.php">
+            <input type="hidden" name="selected_date" value="<?php echo $selected_date ?>">
+            <input type="hidden" name="selected_time" value="<?php echo $selected_time ?>">
+            <input type="hidden" name="number_of_guests" value="<?php echo $number_of_guests ?>">
+            <input type="hidden" name="table_id" value="<?php echo $table_id ?>">
+            <div class="client_details_tab">
+                <div class="form-group colum-row row">
+                    <div class="col-sm-12">
+                        <input type="text" name="client_full_name" id="client_full_name" class="form-control" placeholder="Full name" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input type="email" name="client_email" class="form-control" placeholder="E-mail" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" name="client_phone_number" class="form-control" placeholder="Phone number" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="submit_table_reservation_form" class="btn btn-info" value="Make a Reservation">
+            </div>
+        </form>
+        <?php
+    }
+}
 
-                }
 
             ?>
         </div>

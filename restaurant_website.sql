@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2025 at 09:16 AM
+-- Generation Time: Jun 18, 2025 at 10:18 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,8 @@ INSERT INTO `clients` (`client_id`, `client_name`, `client_phone`, `client_email
 (26, 'Qurratun Aina Sakinah', '0187824620', 'aina@gmail.com'),
 (27, 'adam', '01178929', 'adam@gmail.com'),
 (28, 'Qurratun Aina Sakinah', '01178929', 'ainarg178@gmail.com'),
-(29, 'Qurratun Aina Sakinah', '01178929', 'ainarg178@gmail.com');
+(29, 'Qurratun Aina Sakinah', '01178929', 'ainarg178@gmail.com'),
+(30, 'Qurratun Aina Sakinah', '01178929', 'sarah@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -220,6 +221,13 @@ CREATE TABLE `reservations` (
   `cancellation_reason` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `reservations`
+--
+
+INSERT INTO `reservations` (`reservation_id`, `date_created`, `client_id`, `selected_time`, `nbr_guests`, `table_id`, `liberated`, `canceled`, `cancellation_reason`) VALUES
+(7, '2025-06-18 10:17:00', 30, '2025-06-19 10:16:00', 1, 1, 0, 0, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -229,6 +237,16 @@ CREATE TABLE `reservations` (
 CREATE TABLE `tables` (
   `table_id` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `tables`
+--
+
+INSERT INTO `tables` (`table_id`) VALUES
+(1),
+(2),
+(3),
+(4);
 
 -- --------------------------------------------------------
 
@@ -352,13 +370,13 @@ ALTER TABLE `website_settings`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `image_gallery`
 --
 ALTER TABLE `image_gallery`
-  MODIFY `image_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `image_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `in_order`
@@ -388,13 +406,13 @@ ALTER TABLE `placed_orders`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `reservation_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tables`
 --
 ALTER TABLE `tables`
-  MODIFY `table_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `table_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
