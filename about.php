@@ -71,47 +71,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 sm-padding">
-                    <div class="contact-form">
-                        <div id="contact_ajax_form" class="contactForm">
-                            <div class="form-group colum-row row">
-                                <div class="col-sm-6">
-                                    <input type="text" id="contact_name" name="name" oninput="document.getElementById('invalid-name').innerHTML = ''" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z]/g,'');" class="form-control" placeholder="Name">
-                                    <div class="invalid-feedback" id="invalid-name" style="display: block">
-                                    	
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="email" id="contact_email" name="email" oninput="document.getElementById('invalid-email').innerHTML = ''" class="form-control" placeholder="Email">
-                                    <div class="invalid-feedback" id="invalid-email" style="display: block">
-                                    	
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <input type="text" id="contact_subject" name="subject" oninput="document.getElementById('invalid-subject').innerHTML = ''" onkeyup="this.value=this.value.replace(/[^\sa-zA-Z]/g,'');" class="form-control" placeholder="Subject">
-                                    <div class="invalid-feedback" id="invalid-subject" style="display: block">
-                                    	
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <textarea id="contact_message" name="message" oninput="document.getElementById('invalid-message').innerHTML = ''" cols="30" rows="5" class="form-control message" placeholder="Message"></textarea>
-                                    <div class="invalid-feedback" id="invalid-message" style="display: block">
-                                    	
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <button id="contact_send" class="bttn_style_2">Send Message</button>
-                                </div>
-                            </div>
-                            <div id="sending_load" style="display: none;">Sending...</div>
-                            <div id="contact_status_message"></div>
-                        </div>
-                    </div>
+                    <!--TEMPAT LETAK GAMBAR-->
                 </div>
             </div>
         </div>
