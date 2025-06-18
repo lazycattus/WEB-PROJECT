@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2025 at 01:20 PM
+-- Generation Time: Jun 18, 2025 at 09:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,9 @@ CREATE TABLE `clients` (
 
 INSERT INTO `clients` (`client_id`, `client_name`, `client_phone`, `client_email`) VALUES
 (26, 'Qurratun Aina Sakinah', '0187824620', 'aina@gmail.com'),
-(27, 'adam', '01178929', 'adam@gmail.com');
+(27, 'adam', '01178929', 'adam@gmail.com'),
+(28, 'Qurratun Aina Sakinah', '01178929', 'ainarg178@gmail.com'),
+(29, 'Qurratun Aina Sakinah', '01178929', 'ainarg178@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -93,7 +95,9 @@ INSERT INTO `in_order` (`id`, `order_id`, `menu_id`, `quantity`) VALUES
 (25, 17, 2, 1),
 (26, 17, 3, 1),
 (27, 18, 21, 1),
-(28, 18, 24, 1);
+(28, 18, 24, 1),
+(29, 19, 2, 1),
+(30, 20, 20, 1);
 
 -- --------------------------------------------------------
 
@@ -116,7 +120,7 @@ CREATE TABLE `menus` (
 
 INSERT INTO `menus` (`menu_id`, `menu_name`, `menu_description`, `menu_price`, `menu_image`, `category_id`) VALUES
 (1, 'Nasi Lemak with Fried Chicken', 'Fragrant coconut rice served with spicy sambal, boiled egg, anchovies, peanuts, cucumber, and crispy fried chicken.', 14.00, 'nasilemak.jpg', 8),
-(2, 'Beef Hamburger', 'A juicy grilled beef patty served in a bun with fresh lettuce, tomato, and signature sauce.\n', 15.90, 'burger.jpeg', 1),
+(2, 'Beef Hamburger', 'A juicy grilled beef patty served in a bun with fresh lettuce, tomato, and signature sauce.', 15.90, 'burger.jpeg', 1),
 (3, 'Ice Cream', 'A creamy and refreshing frozen dessert available in a variety of delicious flavors.\n', 5.00, 'summer-dessert-sweet-ice-cream.jpg', 2),
 (5, 'Coffee', 'Freshly brewed aromatic coffee made from high-quality roasted beans.\n', 6.00, 'coffee.jpeg', 3),
 (6, 'Ice Tea', 'A chilled and refreshing tea beverage, lightly sweetened and served over ice.', 3.20, '76643_ice_tea.jpg', 3),
@@ -169,7 +173,8 @@ INSERT INTO `menu_categories` (`category_id`, `category_name`) VALUES
 (4, 'pasta'),
 (5, 'pizzas'),
 (6, 'salads'),
-(8, 'Malaysian Traditional Food');
+(8, 'Malaysian Traditional Food'),
+(14, 'Cuisine');
 
 -- --------------------------------------------------------
 
@@ -179,7 +184,7 @@ INSERT INTO `menu_categories` (`category_id`, `category_name`) VALUES
 
 CREATE TABLE `placed_orders` (
   `order_id` int(5) NOT NULL,
-  `order_time` datetime NOT NULL,
+  `order_time` date NOT NULL,
   `client_id` int(5) NOT NULL,
   `delivery_address` varchar(255) NOT NULL,
   `delivered` tinyint(1) NOT NULL DEFAULT 0,
@@ -192,8 +197,10 @@ CREATE TABLE `placed_orders` (
 --
 
 INSERT INTO `placed_orders` (`order_id`, `order_time`, `client_id`, `delivery_address`, `delivered`, `canceled`, `cancellation_reason`) VALUES
-(17, '2025-05-27 05:45:00', 26, 'test st', 0, 0, NULL),
-(18, '2025-05-27 13:17:00', 27, 'wtv', 0, 0, NULL);
+(17, '2025-05-27', 26, 'test st', 1, 0, NULL),
+(18, '2025-05-27', 27, 'wtv', 0, 0, NULL),
+(19, '2025-06-18', 28, 'seremban', 0, 0, NULL),
+(20, '2025-06-18', 29, 'test time', 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -345,7 +352,7 @@ ALTER TABLE `website_settings`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `client_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `image_gallery`
@@ -357,25 +364,25 @@ ALTER TABLE `image_gallery`
 -- AUTO_INCREMENT for table `in_order`
 --
 ALTER TABLE `in_order`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `menu_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `menu_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `menu_categories`
 --
 ALTER TABLE `menu_categories`
-  MODIFY `category_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `category_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `placed_orders`
 --
 ALTER TABLE `placed_orders`
-  MODIFY `order_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `order_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `reservations`
