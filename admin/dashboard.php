@@ -276,12 +276,12 @@
                                                                         <div class="modal-body">
                                                                             <div class="form-group">
                                                                                 <label>Cancellation Reason</label>
-                                                                                <textarea class="form-control" id="cancellation_reason_order_<?php echo $order['order_id'] ?>" required="required"></textarea>
+                                                                                <textarea class="form-control" id="cancellation_reason_order_<?php echo $reservation['reservation_id'] ?>" required="required"></textarea>
                                                                             </div>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                                            <button type="button" data-id = "<?php echo $order['order_id']; ?>" class="btn btn-danger cancel_order_button">
+                                                                            <button type="button" data-id = "<?php echo $reservation['reservation_id']; ?>" class="btn btn-danger cancel_order_button">
                                                                                 Cancel Order
                                                                             </button>
                                                                         </div>
@@ -593,12 +593,12 @@
                                                                         <div class="modal-body">
                                                                             <div class="form-group">
                                                                                 <label>Cancellation Reason</label>
-                                                                                <textarea class="form-control" id="cancellation_reason_reservation_<?php echo $order['order_id'] ?>" required="required"></textarea>
+                                                                                <textarea class="form-control" id="cancellation_reason_reservation_<?php echo $reservation['reservation_id'] ?>" required="required"></textarea>
                                                                             </div>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                                            <button type="button" data-id = "<?php echo $reservation['reservation_id']; ?>" class="btn btn-danger cancel_order_button">
+                                                                            <button type="button" data-id="<?php echo $reservation['reservation_id']; ?>" class="btn btn-danger cancel_reservation_button">
                                                                                 Cancel Reservation
                                                                             </button>
                                                                         </div>
@@ -823,5 +823,52 @@
             }
         });
     });
+
+    $('.liberate_table_button').click(function() {
+    var reservation_id = $(this).data('id');
+    var do_ = 'Liberate_Reservation';
+
+    $.ajax({
+        url: "ajax_files/dashboard_ajax.php",
+        type: "POST",
+        data: { do_: do_, reservation_id: reservation_id },
+        success: function(data) {
+            $('#liberate_table' + reservation_id).modal('hide');
+            swal("Reservation Completed", "The table has been liberated successfully", "success").then((value) => {
+                window.location.replace("dashboard.php");
+            });
+        },
+        error: function(xhr, status, error) {
+            alert('An error occurred while processing your request!');
+        }
+    });
+});
+
+$('.cancel_reservation_button').click(function() {
+    var reservation_id = $(this).data('id');
+    var cancellation_reason = $('#cancellation_reason_reservation_' + reservation_id).val();
+    var do_ = 'Cancel_Reservation';
+
+    $.ajax({
+        url: "ajax_files/dashboard_ajax.php",
+        type: "POST",
+        data: {
+            reservation_id: reservation_id,
+            cancellation_reason_reservation: cancellation_reason,
+            do_: do_
+        },
+        success: function(data) {
+            $('#cancel_reservation' + reservation_id).modal('hide');
+            swal("Reservation Canceled", "The reservation has been canceled successfully", "success").then((value) => {
+                window.location.replace("dashboard.php");
+            });
+        },
+        error: function(xhr, status, error) {
+            alert('An error occurred while trying to cancel the reservation.');
+        }
+    });
+});
+
+
 
 </script>
