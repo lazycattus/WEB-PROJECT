@@ -53,21 +53,18 @@
                 <div class="col-lg-6 sm-padding">
                     <div class="contact-info">
                         <h2>
-                            Get to know something about us!
+                            OUR FAMILY!
                         </h2>
-                        <p>
-                            Orderlah is a fresh and fun online food ordering platform built by a team of five passionate individuals. We designed it with simplicity, speed, and satisfaction in mind—making it easier than ever to explore menus and place your orders. Our platform is the result of collaborative effort, creativity, and a shared love for great food experiences.
-                        </p>
-                        <h3>
-                            <?php echo $restaurant_address; ?>
-                        </h3>
-                        <h4>
-                            <span>Email:</span> 
-                            <?php echo $restaurant_email; ?>
-                            <br> 
-                            <span>Phone:</span> 
-                            <?php echo $restaurant_phonenumber; ?>
-                        </h4>
+                        <h3 style="margin-top: 20px;">MANAGER</h3>
+                        <p>QURRATUN AINA SAKINAH</p>
+                        <h3 style="margin-top: 20px;">HOST</h3>
+                        <p>LUQMAN NAQIUDDIN</p>
+                        <h3 style="margin-top: 20px">WAITRESS</h3>
+                        <p>NURAINA ELYANI</p>
+                        <h3 style="margin-top: 20px">LEAD CHEF</h3>
+                        <p>SITI FATIMAH</p>
+                        <h3 style="margin-top: 20px">BARISTA</h3>
+                        <p>NUR A'IN SAFIEYA</p>
                     </div>
                 </div>
                 <div class="image_team">
