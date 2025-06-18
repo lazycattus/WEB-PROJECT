@@ -51,7 +51,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 sm-padding">
-                    <div class="contact-info">
+                    <div style="justify-content: center; align-items: center" class="contact-info">
                         <h2>
                             OUR FAMILY!
                         </h2>
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="image_team">
-                    <img src="Design\images\team.jpg" alt=" "style="width: 50%; margin-left: 30px">
+                    <img src="Design\images\team.jpg" alt=" "style="width: 50%; margin-left: 30px; border-radius: 50px; float-right: 50px; margin-left: 30%">
                 </div>
             </div>
         </div>
