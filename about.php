@@ -55,9 +55,9 @@
                         <h2>
                             OUR FAMILY!
                         </h2>
-                        <h3 style="margin-top: 20px">MANAGER</h3>
+                        <h3 style="margin-top: 20px;">MANAGER</h3>
                         <p>QURRATUN AINA SAKINAH</p>
-                        <h3 style="margin-top: 20px">HOST</h3>
+                        <h3 style="margin-top: 20px;">HOST</h3>
                         <p>LUQMAN NAQIUDDIN</p>
                         <h3 style="margin-top: 20px">WAITRESS</h3>
                         <p>NURAINA ELYANI</p>
