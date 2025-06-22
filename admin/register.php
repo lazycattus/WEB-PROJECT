@@ -15,10 +15,11 @@
 
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['admin_register'])) {
+            $fullname = test_input($_POST['full_name']);
             $username = test_input($_POST['username']);
             $email = test_input($_POST['email']);
             $password = test_input($_POST['password']);
-            $hashedPass = sha1($password); // For better security, use password_hash()
+            $hashedPass = sha1($password); // Use password_hash() for better security
 
             // Check if username or email already exists
             $stmt = $con->prepare("SELECT * FROM users WHERE username = ? OR email = ?");
@@ -28,8 +29,8 @@
                 echo '<div class="alert alert-danger">Username or Email already exists!</div>';
             } else {
                 // Insert new user
-                $stmt = $con->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
-                $success = $stmt->execute([$username, $hashedPass, $email]);
+                $stmt = $con->prepare("INSERT INTO users (full_name, username, password, email) VALUES (?, ?, ?, ?)");
+                $success = $stmt->execute([$fullname, $username, $hashedPass, $email]);
 
                 if($success) {
                     echo '<div class="alert alert-success">Registration successful. You can now <a href="index.php">log in</a>.</div>';
@@ -40,12 +41,12 @@
         }
         ?>
 
-        <!-- USERNAME INPUT -->
+        <!-- FULL NAME INPUT -->
         <div class="form-input">
-            <span class="txt1">Username</span>
-            <input type="text" name="username" class="form-control username"
-            oninput="document.getElementById('username_required').style.display = 'none'" autocomplete="off" required>
-            <div class="invalid-feedback" id="username_required">Username is required!</div>
+            <span class="txt1">Full Name</span>
+            <input type="text" name="full_name" class="form-control"
+            oninput="document.getElementById('fullname_required').style.display = 'none'" autocomplete="off" required>
+            <div class="invalid-feedback" id="fullname_required">Full name is required!</div>
         </div>
 
         <!-- EMAIL INPUT -->
@@ -54,6 +55,14 @@
             <input type="text" name="email" class="form-control"
             oninput="document.getElementById('email_required').style.display = 'none'" autocomplete="off" required>
             <div class="invalid-feedback" id="email_required">Email is required!</div>
+        </div>
+
+        <!-- USERNAME INPUT -->
+        <div class="form-input">
+            <span class="txt1">Username</span>
+            <input type="text" name="username" class="form-control username"
+            oninput="document.getElementById('username_required').style.display = 'none'" autocomplete="off" required>
+            <div class="invalid-feedback" id="username_required">Username is required!</div>
         </div>
 
         <!-- PASSWORD INPUT -->
