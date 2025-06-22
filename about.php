@@ -50,11 +50,10 @@
 	<section class="contact-section" id="contact">
         <div class="container">
             <div class="row">
+                <div class="row align-items-center">
                 <div class="col-lg-6 sm-padding">
-                    <div style="justify-content: center; align-items: center" class="contact-info">
-                        <h2>
-                            OUR FAMILY!
-                        </h2>
+                    <div class="contact-info">
+                        <h2>OUR FAMILY!</h2>
                         <h3 style="margin-top: 20px;">MANAGER</h3>
                         <p>QURRATUN AINA SAKINAH</p>
                         <h3 style="margin-top: 20px;">HOST</h3>
@@ -67,8 +66,8 @@
                         <p>NUR A'IN SAFIEYA</p>
                     </div>
                 </div>
-                <div class="image_team">
-                    <img src="Design\images\team.jpg" alt=" "style="width: 50%; margin-left: 30px; border-radius: 50px; float-right: 50px; margin-left: 30%">
+                <div class="col-lg-6 sm-padding text-center">
+                    <img src="Design/images/team.jpg" alt="Team Image" style="width: 80%; border-radius: 25px;">
                 </div>
             </div>
         </div>
