@@ -295,19 +295,23 @@
                         </table>  
                         <script>
                         function printTable() {
-                            const printContents = document.querySelector('.menus-table').outerHTML;
-                            const printWindow = window.open('', '', 'height=600,width=800');
-                            printWindow.document.write('<html><head><title>Print Menu Table</title>');
-                            printWindow.document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">');
-                            printWindow.document.write('</head><body>');
-                            printWindow.document.write('<h2 class="text-center my-3">Menu Table</h2>');
-                            printWindow.document.write(printContents);
-                            printWindow.document.write('</body></html>');
-                            printWindow.document.close();
+                        const printContents = document.querySelector('.menus-table').outerHTML;
+                        const printWindow = window.open('', '', 'height=600,width=800');
+                        printWindow.document.write('<html><head><title>Print Menu Table</title>');
+                        printWindow.document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">');
+                        printWindow.document.write('</head><body>');
+                        printWindow.document.write('<h2 class="text-center my-3">Menu Table</h2>');
+                        printWindow.document.write(printContents);
+                        printWindow.document.write('</body></html>');
+                        printWindow.document.close();
+                        
+                        // Delay the print until the window is fully ready
+                        printWindow.onload = function () {
                             printWindow.focus();
                             printWindow.print();
                             printWindow.close();
-                        }
+                        };
+                    }
                         </script>
                     </div>
                 </div>
