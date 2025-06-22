@@ -118,12 +118,15 @@
                     $stmtClient->execute(array($client_full_name,$client_phone_number,$client_email));
 
                     
-                    $stmt_reservation = $con->prepare("insert into reservations(date_created, client_id, selected_time, nbr_guests, table_id) values(?, ?, ?, ?, ?)");
-                    $stmt_reservation->execute(array(Date("Y-m-d H:i"),$client_id[0], $desired_date, $number_of_guests, $table_id));
-                    $stmt_table = $con->prepare("UPDATE tables SET is_available = 0 WHERE table_id = ?");
-$stmt_table->execute([$table_id]);
-                    $stmtUpdateTable = $con->prepare("UPDATE tables SET is_available = 0 WHERE table_id = ?");
-                    $stmtUpdateTable->execute([$table_id]);
+                    //$stmt_reservation = $con->prepare("insert into reservations(date_created, client_id, selected_time, nbr_guests, table_id) values(?, ?, ?, ?, ?)");
+                    //$stmt_reservation->execute(array(Date("Y-m-d H:i"),$client_id[0], $desired_date, $number_of_guests, $table_id));
+                    //$stmt_table = $con->prepare("UPDATE tables SET is_available = 0 WHERE table_id = ?");
+                    //$stmt_table->execute([$table_id]);
+                    //$stmtUpdateTable = $con->prepare("UPDATE tables SET is_available = 0 WHERE table_id = ?");
+                    //$stmtUpdateTable->execute([$table_id]);
+                    $stmt_reservation = $con->prepare("INSERT INTO reservations(date_created, client_id, selected_time, nbr_guests, table_id) VALUES(?, ?, ?, ?, ?)");
+                    $stmt_reservation->execute(array(Date("Y-m-d H:i"), $client_id[0], $desired_date, $number_of_guests, $table_id));
+
 
                     
                     echo "<div class = 'alert alert-success'>";
@@ -205,21 +208,28 @@ if (isset($_POST['check_availability_submit'])) {
 
     $datetime = $selected_date . ' ' . $selected_time;
 
-    $stmt = $con->prepare("
-       SELECT table_id 
-FROM tables 
-WHERE is_available = 1
-  AND table_id NOT IN (
-    SELECT table_id 
-    FROM reservations 
-    WHERE DATE(selected_time) = ? 
-      AND TIME(selected_time) = ? 
-      AND canceled = 0 
-      AND liberated = 0
-)
-ORDER BY table_id ASC
-
+   $stmt = $con->prepare("
+        SELECT table_id 
+        FROM tables 
+        WHERE table_id NOT IN (
+            SELECT table_id 
+            FROM reservations 
+            WHERE DATE(selected_time) = ? 
+            AND TIME(selected_time) = ? 
+            AND canceled = 0 
+            AND liberated = 0
+        )
+        ORDER BY table_id ASC
     ");
+
+    $selected_date = $_POST['reservation_date']; // example: 2025-06-19
+    $selected_time = date("H:i:s", strtotime($_POST['reservation_time'])); // ensure it's in HH:MM:SS format
+
+    $stmt->execute([$selected_date, $selected_time]);
+    $available_tables = $stmt->fetchAll();
+
+
+
     $stmt->execute([$selected_date, $selected_time]);
     $available_tables = $stmt->fetchAll();
 
