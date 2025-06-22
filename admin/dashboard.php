@@ -276,12 +276,12 @@
                                                                         <div class="modal-body">
                                                                             <div class="form-group">
                                                                                 <label>Cancellation Reason</label>
-                                                                                <textarea class="form-control" id="cancellation_reason_order_<?php echo $reservation['reservation_id'] ?>" required="required"></textarea>
+                                                                                <textarea class="form-control" id="cancellation_reason_order_<?php echo $order['order_id'] ?>" required="required"></textarea>
                                                                             </div>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                                            <button type="button" data-id = "<?php echo $reservation['reservation_id']; ?>" class="btn btn-danger cancel_order_button">
+                                                                            <button type="button" data-id="<?php echo $order['order_id']; ?>" class="btn btn-danger cancel_order_button">
                                                                                 Cancel Order
                                                                             </button>
                                                                         </div>
