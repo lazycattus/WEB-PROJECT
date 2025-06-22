@@ -50,9 +50,9 @@
 	<section class="contact-section" id="contact">
         <div class="container">
             <div class="row">
-                <div class="row align-items-center">
-                <div class="col-lg-6 sm-padding">
-                    <div class="contact-info">
+                
+                <div class="col-lg-6 sm-padding" style="text-:center">
+                <div class="contact-info" style="text-align: center;background-color: rgba(255, 255, 255, 0.8);padding: 30px;border-radius: 20px;box-shadow: 0px 0px 10px rgba(0,0,0,0.2);">
                         <h2>OUR FAMILY!</h2>
                         <h3 style="margin-top: 20px;">MANAGER</h3>
                         <p>QURRATUN AINA SAKINAH</p>
@@ -83,10 +83,9 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer_widget">
                         <p>
-  <img src="Design/images/restaurant-logo.png" style="float:right; width:50%; border-radius:5px;">
-  Welcome to our restaurant. Enjoy delicious food with great ambiance.
-</p>
-
+                        <img src="Design/images/restaurant-logo.png" style="float:right; width:50%; border-radius:5px;">
+                        Welcome to our restaurant. Enjoy delicious food with great ambiance.
+                        </p>
                         <p>
                             ORDERLAH is one of the bests, provide tasty Menus and Dishes. You can reserve a table or Order food.
                         </p>
@@ -126,7 +125,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <!--<div class="col-lg-3 col-md-6">
                     <div class="footer_widget">
                         <h3>Subscribe to our contents</h3>
                         <div class="subscribe_form">
@@ -137,7 +136,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </section>
