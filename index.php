@@ -58,7 +58,7 @@
 						</h2>
 						<hr>
 						<p>
-							Tasty food, fast delivery, confirm syok! 
+							<b>Tasty food, fast delivery, confirm syok!</b> 
 						</p>
 						<div style="display: flex;">
 							<a href="order_food.php" target="_blank" class="bttn_style_1" style="margin-right: 10px; display: flex;justify-content: center;align-items: center;">
