@@ -98,7 +98,7 @@
 
 			<!-- FORGOT PASSWORD PART -->
 
-			<span class="forgotPW">Forgot your password ? <a href="#">Reset it here.</a></span>
+			<span class="forgotPW">Don't have an account ? <a href="register.php">Register here.</a></span>
 
 		</form>
 	</div>

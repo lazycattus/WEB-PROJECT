@@ -8,7 +8,7 @@
 ?>
 
 <div class="login">
-    <form class="login-container validate-form" name="register-form" action="" method="POST" onsubmit="return validateLoginForm()">
+    <form class="contact-form login-container validate-form" name="register-form" action="" method="POST" onsubmit="return validateLoginForm()">
         <span class="login100-form-title p-b-32">
             Admin Registration
         </span>
@@ -51,7 +51,7 @@
         <!-- EMAIL INPUT -->
         <div class="form-input">
             <span class="txt1">Email</span>
-            <input type="email" name="email" class="form-control"
+            <input type="text" name="email" class="form-control"
             oninput="document.getElementById('email_required').style.display = 'none'" autocomplete="off" required>
             <div class="invalid-feedback" id="email_required">Email is required!</div>
         </div>
