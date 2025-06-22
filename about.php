@@ -83,7 +83,6 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer_widget">
                         <p>
-                        <img src="Design/images/restaurant-logo.png" style="float:right; width:50%; border-radius:5px;">
                         Welcome to our restaurant. Enjoy delicious food with great ambiance.
                         </p>
                         <p>
