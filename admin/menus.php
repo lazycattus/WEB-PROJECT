@@ -203,7 +203,7 @@
                                                 echo $menu['menu_description'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo "$".$menu['menu_price'];
+                                                echo "RM".$menu['menu_price'];
                                             echo "</td>";
                                             echo "<td>";
                                                 //
